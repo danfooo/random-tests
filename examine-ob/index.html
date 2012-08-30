@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>untitled</title>
+	<!-- Date: 2012-08-16 -->
+</head>
+<body>
+  <script>
+    var Foo = function(){
+      this.bar = true;
+    };
+    var FooProto = function(){
+      this.foo = true;
+    };
+    Foo.prototype = new FooProto();
+    
+    var foo = new Foo();
+  </script>
+</body>
+</html>

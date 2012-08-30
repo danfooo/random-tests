@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <div id="status"></div>
+</body>
+<script>
+
+
+  var req = function(url, i)
+  {
+    var client = new XMLHttpRequest();
+    client.onload = xhr_handler;
+    client.onerror = xhr_error_handler;
+    client.open("GET", url);
+    client.setRequestHeader("x-foo", String(Math.random()));
+    client.send();
+  }
+
+  var xhr_handler = function()
+  {
+    console.log("xhr done", new Date().toString(), this.responseText);
+  }
+
+  var xhr_error_handler = function()
+  {
+    console.log("xhr error", new Date().toString());
+  }
+
+  function do_req()
+  {
+    console.log("will request", new Date().toString());
+    req("/every-2nd-longpoll");
+  }
+
+  do_req();
+  setTimeout(do_req, 5000);
+
+</script>
+</html>

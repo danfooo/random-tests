@@ -1,0 +1,20 @@
+<p></p>
+<script>
+
+var count = 0;
+var delay_update = function()
+{
+  setTimeout(update, 0);
+  console.log("scheduled update");
+};
+var update = function()
+{
+  count++;
+  document.querySelector("p").textContent = count;
+  console.log("increased count", count);
+}
+for (var i = 0; i < 2; i++)
+{
+  console.log(setTimeout(delay_update, i * 20));
+}
+</script>
